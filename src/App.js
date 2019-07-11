@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Search from './Search';
 import './App.css';
 
 function App() {
+  const [query, setQuery] = useState("")
+  const getData = (query) => {
+    // DO SOMETHING WITH QUERY - LIKE REQUEST DATA FROM AN API
+    setQuery(query)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search getData={getData} />
+      <h1>Query</h1>
+      <p>{query}</p>
     </div>
   );
 }
